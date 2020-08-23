@@ -19,24 +19,20 @@ const data = {
 
 calcCash = (own = 0) => {
 	const everyCash = Array.prototype.slice.call(arguments);
-	const total = own;
-	for (let i = 0; i < everyCash[1].length; i++) {
-		total += +everyCash[1][i];
-	}
+	let total = own;
+	for (let i = 0; i < everyCash[1].length; i++) total += +everyCash[1][i];
 	return total;
 }
 
 
-var lesson = calcCash(null, data.cash);
+const lesson = calcCash(null, data.cash);
 
-function makeBusiness(director, teacher, allModule, gang, course) {
-	teacher = teacher || 'Максим';
-	var sumTech = data.react.concat(data.add, 'и другие');
-	console.log('Стартуем новый курс: "' + course + '". Владелец: ' + director + ', преподаватель: ' + teacher + '. Всего уроков: ' + allModule + '. \nКоманда Академии: ' +
-		gang);
-	console.log('Первое что изучим будет ' + data.react[0] + ". Он очень похож на HTML!");
-	console.log('Технологии которые мы изучим: ');
-	console.log.apply(null, sumTech);
+makeBusiness = (director, teacher = 'Максим', allModule, gang, course) => {
+	let sumTech = data.react.concat(data.add, 'и другие');
+	console.log(`Стартуем новый курс:  ${course} . Владелец: ${director}, преподаватель: ${teacher}. Всего уроков: ${allModule}. 
+	Команда Академии: ${gang}`);
+	console.log(`Первое что изучим будет ${data.react[0]} . Он очень похож на HTML!"`);
+	console.log(`Технологии которые мы изучим: ${sumTech}`);
 
 }
 
